@@ -38,10 +38,11 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: transform 0.2s, box-shadow 0.2s; /* 添加平滑过渡 */
 }
 button:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px); /* 向上抬起 */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
 }
 button:focus,
 button:focus-visible {

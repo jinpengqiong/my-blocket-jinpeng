@@ -1,5 +1,5 @@
 /* Profile.css */
-.profile-container {
+.profileContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@
   background-color: rgb(56, 128, 246);
   height: 200px;
 }
-.profile-header{
+.profileHeader{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-.form-group {
+.formGroup {
   margin-bottom: 20px;
   width: 100%;
 }
@@ -50,28 +50,28 @@ button {
   width: 100%;
 }
 
-.btn-save {
+.btnSave {
   background-color: rgb(36, 130, 246);;
   color: white;
   margin-bottom: 20px;
   width: 100%;
 }
 
-.btn-cancel {
+.btnCancel {
   background-color: #ccc;
   color: white;
   width: 100%;
 }
 
-.btn-edit {
+.btnEdit {
   background-color: #2196F3;
   color: white;
 }
 
-.profile-edit, .profile-view {
+.profileEdit, .profileView {
   width: 100%;
 }
-.profile-edit{
+.profileEdit{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,22 +84,22 @@ button {
 
 /* Media Queries */
 @media (max-width: 500px) {
-  .profile-container, .profile-edit{
+  .profileContainer, .profileEdit{
     padding: 15px;
     margin: 0 auto;
     overflow: auto hidden;
   }
 }
 
-.profile-view{
+.profileView{
   position: relative;
 }
-.profile-card-content-svg{
+.profileCardContentSvg{
   position: absolute;
   top:-78px;
   left: 56px;
 }
-.profile-card-content-top-avatar{
+.profileCardContentTopAvatar{
   width: 40px;
   height: 40px;
   border-radius: 20px;
@@ -107,29 +107,29 @@ button {
   top:-106px;
   left:-10px;
 }
-.profile-card-content-edit{
+.profileCardContentEdit{
   width: 20px;
   height: 20px;
   position: absolute;
   top:-101px;
   right:0px;
 }
-.profile-content{
+.profileContent{
   position: absolute;
   top:38px;
   left:-4px;
 }
-.profile-usernameFont{
+.profileUsernameFont{
   color: #fff;
   font-size: 18px;
   font-weight: bold;
 }
-.profile-emailFont,.profile-phoneFont {
+.profileEmailFont,.profilePhoneFont {
   color: #fff;
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
 }
-.profile-card-content-top-avatar-edit{
+.profileCardContentTopAvatarEdit{
   border-radius: 40px;
   overflow: hidden;
   width: 80px;

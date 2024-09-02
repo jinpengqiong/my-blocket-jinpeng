@@ -10,19 +10,31 @@ function Profile() {
   const [userData, setUserData] = useState(null);
   const [editData, setEditData] = useState(null);
   async function getProfiles() {
-    const { data } = await api.get('/api/getProfiles');
-    if(data.length > 0){
-      setUserData(data[0])
-      setEditData(data[0])
+    try {
+      const { data } = await api.get('/api/getProfiles');
+      if(data.length > 0){
+        setUserData(data[0])
+        setEditData(data[0])
+      }
+    } catch (error) {
+      console.error("getProfiles error", error);
     }
   }
   async function updateProfiles(data) {
-    await api.put('/api/updateProfiles', data);
-    getProfiles()
+    try {
+      await api.put('/api/updateProfiles', data);
+      getProfiles()
+    } catch (error) {
+      console.error("updateProfiles error", error);
+    }
   }
   async function addProfiles(data) {
-    await api.put('/api/addProfiles', data);
-    getProfiles()
+    try {
+      await api.put('/api/addProfiles', data);
+      getProfiles()
+    } catch (error) {
+      console.error("addProfiles error", error);
+    }
   }
   useEffect(() => {
     getProfiles()
@@ -47,7 +59,7 @@ function Profile() {
 
   const handleSaveClick = () => {
     if(!editData.name || !editData.email || !editData.phone) {
-      alert('Your name or email or phone can not be empty.')
+      alert('The field of name or email or phone can not be empty.')
       return
     }
     if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(editData.email)){
@@ -70,9 +82,9 @@ function Profile() {
   return (
     <>
       {isEditing ? (
-        <div className="profile-edit">
-          <img src={Avatar} alt="Avatar" className='profile-card-content-top-avatar-edit'/>
-          <div className="form-group">
+        <div className="profileEdit">
+          <img src={Avatar} alt="Avatar" className='profileCardContentTopAvatarEdit'/>
+          <div className="formGroup">
             <label><strong>Username:</strong></label>
             <input
               type="text"
@@ -81,7 +93,7 @@ function Profile() {
               onChange={handleChange}
             />
           </div>
-          <div className="form-group">
+          <div className="formGroup">
             <label><strong>Email:</strong></label>
             <input
               type="email"
@@ -90,7 +102,7 @@ function Profile() {
               onChange={handleChange}
             />
           </div>
-          <div className="form-group">
+          <div className="formGroup">
             <label><strong>Phone:</strong></label>
             <input
               type="text"
@@ -99,21 +111,21 @@ function Profile() {
               onChange={handleChange}
             />
           </div>
-            <button onClick={handleSaveClick} className="btn-save">Save</button>
-            <button onClick={handleCancelClick} className="btn-cancel">Cancel</button>
+            <button onClick={handleSaveClick} className="btnSave">Save</button>
+            <button onClick={handleCancelClick} className="btnCancel">Cancel</button>
         </div>
       ) : (
         <>
-          <h2 className="profile-header">User Profile</h2>
-          <div className="profile-container">
-            <div className="profile-view">
-              <img src={CardBackground} alt="CardBackground"  className='profile-card-content-svg'/>
-              <img src={Avatar} alt="Avatar" className='profile-card-content-top-avatar'/>
-              <img src={EditIcon} alt="EditIcon" className='profile-card-content-edit' onClick={handleEditClick} title="edit"/>
-              <div className="profile-content">
-                <div className="profile-usernameFont">{userData?.name}</div>
-                <div className="profile-emailFont">{userData?.email}</div>
-                <div className="profile-phoneFont">{userData?.phone}</div>
+          <h2 className="profileHeader">User Profile</h2>
+          <div className="profileContainer">
+            <div className="profileView">
+              <img src={CardBackground} alt="CardBackground"  className='profileCardContentSvg'/>
+              <img src={Avatar} alt="Avatar" className='profileCardContentTopAvatar'/>
+              <img src={EditIcon} alt="EditIcon" className='profileCardContentEdit' onClick={handleEditClick} title="edit"/>
+              <div className="profileContent">
+                <div className="profileUsernameFont">{userData?.name}</div>
+                <div className="profileEmailFont">{userData?.email}</div>
+                <div className="profilePhoneFont">{userData?.phone}</div>
               </div>
             </div>
           </div>
