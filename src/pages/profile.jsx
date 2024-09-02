@@ -47,11 +47,15 @@ function Profile() {
 
   const handleSaveClick = () => {
     if(!editData.name || !editData.email || !editData.phone) {
-      alert('Please enter your name or email or phone.')
+      alert('Your name or email or phone can not be empty.')
       return
     }
     if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(editData.email)){
       alert('Please enter email with correct format.')
+      return
+    }
+    if(!/^1[3-9]\d{9}$/.test(editData.phone)){
+      alert('Please enter phone number with correct format.')
       return
     }
     setUserData({ ...editData });
