@@ -11,11 +11,17 @@ function Profile() {
   const [editData, setEditData] = useState(null);
   async function getProfiles() {
     const { data } = await api.get('/api/getProfiles');
-    setUserData(data?.[0])
-    setEditData(data?.[0])
+    if(data.length > 0){
+      setUserData(data[0])
+      setEditData(data[0])
+    }
   }
   async function updateProfiles(data) {
     await api.put('/api/updateProfiles', data);
+    getProfiles()
+  }
+  async function addProfiles(data) {
+    await api.put('/api/addProfiles', data);
     getProfiles()
   }
   useEffect(() => {
@@ -50,7 +56,11 @@ function Profile() {
     }
     setUserData({ ...editData });
     setIsEditing(false);
-    updateProfiles({ ...editData })
+    if(editData.id){
+      updateProfiles({ ...editData })
+    }else{
+      addProfiles({ ...editData })
+    }
   };
 
   return (
@@ -63,7 +73,7 @@ function Profile() {
             <input
               type="text"
               name="name"
-              value={editData.name}
+              value={editData?.name}
               onChange={handleChange}
             />
           </div>
@@ -72,7 +82,7 @@ function Profile() {
             <input
               type="email"
               name="email"
-              value={editData.email}
+              value={editData?.email}
               onChange={handleChange}
             />
           </div>
@@ -81,7 +91,7 @@ function Profile() {
             <input
               type="text"
               name="phone"
-              value={editData.phone}
+              value={editData?.phone}
               onChange={handleChange}
             />
           </div>

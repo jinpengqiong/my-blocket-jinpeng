@@ -13,11 +13,22 @@ router.use('/getProfiles', async (req, res) => {
 );
 router.use('/updateProfiles', async (req, res) => {
   const { body:{ email,name, phone, id } }  = req
-  console.log('email,name, phone, id', email,name, phone, id)
   const users = await prisma.userProfiles.update({
     where: {
       id,
     },
+    data: {
+      name,
+      phone,
+      email
+    },
+    });
+  return res.json(users);
+  }
+);
+router.use('/addProfiles', async (req, res) => {
+  const { body:{ email,name, phone } }  = req
+  const users = await prisma.userProfiles.create({
     data: {
       name,
       phone,
