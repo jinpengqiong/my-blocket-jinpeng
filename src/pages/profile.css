@@ -125,9 +125,13 @@ button {
   font-weight: bold;
 }
 .profileEmailFont,.profilePhoneFont {
-  color: #fff;
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 20px;
 }
 .profileCardContentTopAvatarEdit{
   border-radius: 40px;
@@ -141,4 +145,7 @@ button {
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
+}
+.emailSvg, .phoneSVG{
+  margin-right: 5px;
 }

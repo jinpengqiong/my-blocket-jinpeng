@@ -3,6 +3,8 @@ import './Profile.css';
 import {Avatar} from '../../public/avatar'
 import CardBackground from '../../public/cardBackground.svg'
 import EditIcon from '../../public/editIcon.svg'
+import EmailSVG from '../../public/email.svg'
+import PhoneSVG from '../../public/phone.svg'
 import api from '../libs/api';
 
 function Profile() {
@@ -124,8 +126,8 @@ function Profile() {
               <img src={EditIcon} alt="EditIcon" className='profileCardContentEdit' onClick={handleEditClick} title="edit"/>
               <div className="profileContent">
                 <div className="profileUsernameFont">{userData?.name}</div>
-                <div className="profileEmailFont">{userData?.email}</div>
-                <div className="profilePhoneFont">{userData?.phone}</div>
+                <div className="profileEmailFont"><img src={EmailSVG} alt="emailSvg"  className='emailSvg'/>{userData?.email}</div>
+                <div className="profilePhoneFont"><img src={PhoneSVG} alt="phoneSVG"  className='phoneSVG'/>{userData?.phone}</div>
               </div>
             </div>
           </div>

@@ -1,5 +1,12 @@
 # 运行前配置说明
 1. 请先修改根目录下的.env文件, 配置为本地数据库连接地址,同时在`prisma/schema.prisma`文件中`provider`也要修改下数据库类型名称,例如mysql或postgresql, 参考如下示例:
+.env:
+```bash
+DATABASE_URL="数据库类型://用户名:密码@localhost:5432/数据库名"
+示例: DATABASE_URL="postgresql://postgres:111111Qq~@localhost:5432/blocklet"
+```
+
+prisma/schema.prisma:
 ```bash
   datasource db {
     provider = "postgresql"
