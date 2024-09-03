@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Profile.css'; // 导入CSS文件
+import './Profile.css';
 import {Avatar} from '../../public/avatar'
 import CardBackground from '../../public/cardBackground.svg'
 import EditIcon from '../../public/editIcon.svg'
