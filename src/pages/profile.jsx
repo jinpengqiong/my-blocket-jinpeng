@@ -32,7 +32,7 @@ function Profile() {
   }
   async function addProfiles(data) {
     try {
-      await api.put('/api/addProfiles', data);
+      await api.post('/api/addProfiles', data);
       getProfiles()
     } catch (error) {
       console.error("addProfiles error", error);
@@ -126,8 +126,8 @@ function Profile() {
               <img src={EditIcon} alt="EditIcon" className='profileCardContentEdit' onClick={handleEditClick} title="edit"/>
               <div className="profileContent">
                 <div className="profileUsernameFont">{userData?.name}</div>
-                <div className="profileEmailFont"><img src={EmailSVG} alt="emailSvg"  className='emailSvg'/>{userData?.email}</div>
-                <div className="profilePhoneFont"><img src={PhoneSVG} alt="phoneSVG"  className='phoneSVG'/>{userData?.phone}</div>
+                <div className="profileEmailFont">{userData?.email && <img src={EmailSVG} alt="emailSvg"  className='emailSvg'/>}{userData?.email}</div>
+                <div className="profilePhoneFont">{userData?.phone && <img src={PhoneSVG} alt="phoneSVG"  className='phoneSVG'/>}{userData?.phone}</div>
               </div>
             </div>
           </div>
